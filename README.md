@@ -12,6 +12,7 @@
 
 [<img align="left" src="logo.png" hspace="20">](#logo)
 Custom segue for OSX Storyboards with slide and cross fade effects.
+
 ```swift
 class MyViewController: NSViewController {
   override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
@@ -19,7 +20,7 @@ class MyViewController: NSViewController {
           if let segue = segue as? PresentWithAnimatorSegue, animator = segue.animator as? TransitionAnimator {
 
               animator.duration = 1
-              animator.transition = [.SlideDown/, .Crossfade]
+              animator.transition = [.SlideDown, .Crossfade]
               animator.backgroundColor = NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 0.5)
               animator.keepOriginalSize = true
               animator.removeFromView = false
@@ -28,10 +29,21 @@ class MyViewController: NSViewController {
   }
 ```
 
-Segue transition is configured via [NSViewControllerTransitionOptions](https://developer.apple.com/reference/appkit/nsviewcontrollertransitionoptions)
+Segue transition is configured via [NSViewControllerTransitionOptions](https://developer.apple.com/reference/appkit/nsviewcontrollertransitionoptions), and suppress the need to use a parent controller with `transitionFromViewController` function.
+
+## Demo
+In [Example](Example) folder you can launch `pod install` and open `Example.xcworkspace`
+
+[<img src="screen.gif">]
 
 ## How to use
-Use `PresentWithAnimatorSegue` in your storyboard or use one of already configured segue: `SlideDownSegue`, `SlideUpSegue`,...
+Use `PresentWithAnimatorSegue` in your storyboard or use one of already configured segue: `SlideDownSegue`, `SlideUpSegue`, `SlideLeftSegue`,`SlideRightSegue`,...
+
+### Configure segue
+In storyboard add an storyboard identifier to the segue.
+Then in your source view controller, you can configure the segue in `prepareForSegue` function.
+
+You can change the duration, the transition type, ... on animator object (`TransitionAnimator`). You can also put your own custom animator.
 
 ## Installation
 
