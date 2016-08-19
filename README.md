@@ -11,39 +11,82 @@
 [![Cocoapod](http://img.shields.io/cocoapods/v/CustomSegue.svg?style=flat)](http://cocoadocs.org/docsets/CustomSegue/)
 
 [<img align="left" src="logo.png" hspace="20">](#logo)
-Custom segue for OSX Storyboards with slide and cross fade effects.
+Custom segue for OSX Storyboards. Slide and cross fade effects, new customized window.
 
 ```swift
 class MyViewController: NSViewController {
-  override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+
+  override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?)
       if segue.identifier == "configured" {
           if let segue = segue as? PresentWithAnimatorSegue, animator = segue.animator as? TransitionAnimator {
-
               animator.duration = 1
               animator.transition = [.SlideDown, .Crossfade]
-              animator.backgroundColor = NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 0.5)
-              animator.keepOriginalSize = true
-              animator.removeFromView = false
           }
       }
   }
 ```
 
-Segue transition is configured via [NSViewControllerTransitionOptions](https://developer.apple.com/reference/appkit/nsviewcontrollertransitionoptions), and suppress the need to use a parent controller with `transitionFromViewController` function.
+`TransitionAnimator` transition is configured via [NSViewControllerTransitionOptions](https://developer.apple.com/reference/appkit/nsviewcontrollertransitionoptions), and suppress the need to use a parent controller with `transitionFromViewController` function.
 
 ## Demo
 In [Example](Example) folder you can launch `pod install` and open `Example.xcworkspace`
 
-[<img src="screen.gif">]
+<img src="screen.gif">
 
 ## How to use
-Use `PresentWithAnimatorSegue` in your storyboard or use one of already configured segue: `SlideDownSegue`, `SlideUpSegue`, `SlideLeftSegue`,`SlideRightSegue`,...
+Use `PresentWithAnimatorSegue` in your storyboard or use one of already configured segue: `SlideDownSegue`, `SlideUpSegue`, `SlideLeftSegue`, `SlideRightSegue`, `ChildWindowSegue`, ...
+
 
 ### Configure segue
-In storyboard add an storyboard identifier to the segue.
+In your storyboard add an storyboard identifier to the segue.
+
+<img src="https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/Art/SB_H_set_segue_identifier_2x.png" width="301" height="229">
+
 Then in your source view controller, you can configure the segue in `prepareForSegue` function.
 
-You can change the duration, the transition type, ... on animator object (`TransitionAnimator`). You can also put your own custom animator.
+```swift
+class MyViewController: NSViewController {
+  override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "PetDetail" {
+    ...
+```
+
+You can change the duration, the transition type, ... on `animator` object of type `TransitionAnimator`
+```swift
+if let segue = segue as? PresentWithAnimatorSegue, animator = segue.animator as? TransitionAnimator {
+  animator.duration = 1
+  animator.transition = [.SlideDown, .Crossfade]
+}
+```
+
+For `ChildWindowSegue` you can customize the `NSWindow`, which display the destination controller
+```swift
+if let segue = segue as? ChildWindowSegue, animator = segue.animator as? ChildWindowAnimator {
+    animator.windowCustomizer = { window in
+      window.styleMask = NSBorderlessWindowMask
+      window.setFrameOrigin(NSPoint(...))
+    }
+}
+```              
+
+
+:bulb: You can also put your own custom animator.
+```swift
+if let segue = segue as? PresentWithAnimatorSegue {
+  segue.animator = MyAnimator()
+}
+```
+
+## Present view controller utility method
+Little utility method added to `NSViewController` using new enum `PresentationMode`
+```swift
+viewController.present(.AsSheet)
+viewController.present(.AsModalWindow)
+viewController.present(.Segue(segueIdentifier: "id"))
+viewController.present(.Animator(animator: MyAnimator()))
+viewController.present(.AsPopover(...
+
+```
 
 ## Installation
 
@@ -61,3 +104,16 @@ to learn more.
     ```
 
 2. Run `pod install` and open the `.xcworkspace` file to launch Xcode.
+
+
+## Using Carthage ##
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager for Objective-C and Swift.
+
+1. Add the project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
+
+    ```
+    github "phimage/CustomSegue"
+    ```
+
+2. Run `carthage update` and follow [the additional steps](https://github.com/Carthage/Carthage#getting-started)
+   in order to add Prephirences to your project.

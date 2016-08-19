@@ -10,6 +10,9 @@
 		C40299DA1D44AC0A007477E4 /* CustomSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = C40299D91D44AC0A007477E4 /* CustomSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C40299E41D44AC18007477E4 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40299E31D44AC18007477E4 /* TransitionAnimator.swift */; };
 		C40299E61D44AC1C007477E4 /* PresentWithAnimatorSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */; };
+		C40994DE1D66D54800DA17AC /* NSViewController+CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */; };
+		C40994E01D66D7A700DA17AC /* TransitionFromViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */; };
+		C40994E21D66DC6B00DA17AC /* ChildWindowSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,9 @@
 		C40299DB1D44AC0A007477E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40299E31D44AC18007477E4 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentWithAnimatorSegue.swift; sourceTree = "<group>"; };
+		C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+CustomSegue.swift"; sourceTree = "<group>"; };
+		C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionFromViewSegue.swift; sourceTree = "<group>"; };
+		C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildWindowSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,11 @@
 			children = (
 				C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */,
 				C40299E31D44AC18007477E4 /* TransitionAnimator.swift */,
+				C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */,
+				C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */,
 				C40299D91D44AC0A007477E4 /* CustomSegue.h */,
 				C40299DB1D44AC0A007477E4 /* Info.plist */,
+				C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */,
 			);
 			path = CustomSegue;
 			sourceTree = "<group>";
@@ -136,8 +145,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40994DE1D66D54800DA17AC /* NSViewController+CustomSegue.swift in Sources */,
 				C40299E61D44AC1C007477E4 /* PresentWithAnimatorSegue.swift in Sources */,
+				C40994E21D66DC6B00DA17AC /* ChildWindowSegue.swift in Sources */,
 				C40299E41D44AC18007477E4 /* TransitionAnimator.swift in Sources */,
+				C40994E01D66D7A700DA17AC /* TransitionFromViewSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +302,7 @@
 				C40299E01D44AC0A007477E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

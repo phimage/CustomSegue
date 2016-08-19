@@ -645,7 +645,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Example" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-165.5" y="-104"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -663,13 +663,13 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="139" y="244"/>
         </scene>
         <!--Destination View Controller-->
         <scene sceneID="MW0-kF-ZEt">
             <objects>
                 <viewController id="0ZB-VT-r33" customClass="DestinationViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="n9u-cv-Jpp" customClass="DestinationView" customModule="Example" customModuleProvider="target">
+                    <view key="view" id="n9u-cv-Jpp">
                         <rect key="frame" x="0.0" y="0.0" width="296" height="196"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -768,12 +768,24 @@
                                     <segue destination="0ZB-VT-r33" kind="custom" identifier="configured" customClass="PresentWithAnimatorSegue" customModule="CustomSegue" id="2nw-w5-O6e"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rho-I6-8dW">
+                                <rect key="frame" x="224" y="222" width="118" height="32"/>
+                                <buttonCell key="cell" type="push" title="Chid window" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p4j-Vl-VoK">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="0ZB-VT-r33" kind="custom" identifier="chidwindow" customClass="ChildWindowSegue" customModule="CustomSegue" id="SaA-kp-k6q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Rvv-7n-2TS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Dfq-LN-cMr"/>
                             <constraint firstItem="OHg-aR-QLa" firstAttribute="top" secondItem="mZa-wX-u1L" secondAttribute="bottom" constant="12" id="FX5-9w-VaW"/>
+                            <constraint firstItem="rho-I6-8dW" firstAttribute="top" secondItem="Rvv-7n-2TS" secondAttribute="top" id="Lsm-Sm-Pqo"/>
                             <constraint firstItem="Rvv-7n-2TS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="QYd-0g-s6L"/>
                             <constraint firstItem="efb-4U-Alt" firstAttribute="top" secondItem="OHg-aR-QLa" secondAttribute="bottom" constant="12" id="XJB-Vj-GU8"/>
+                            <constraint firstItem="rho-I6-8dW" firstAttribute="leading" secondItem="Rvv-7n-2TS" secondAttribute="trailing" constant="114" id="XKZ-Gt-kSk"/>
                             <constraint firstItem="mZa-wX-u1L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="f2U-OS-xH7"/>
                             <constraint firstItem="bDe-7b-2Ys" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="htL-ff-AXc"/>
                             <constraint firstItem="gwj-SN-suz" firstAttribute="top" secondItem="efb-4U-Alt" secondAttribute="bottom" constant="12" id="mHy-ON-pYe"/>
@@ -795,6 +807,6 @@
         <image name="NSUserAccounts" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nLC-ch-NSa"/>
+        <segue reference="SaA-kp-k6q"/>
     </inferredMetricsTieBreakers>
 </document>

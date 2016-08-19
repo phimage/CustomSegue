@@ -25,12 +25,14 @@ class DestinationViewController: NSViewController {
 
 }
 
+// We could prevent to pass event to source controller views by doing nothing here
+/*
 class DestinationView: NSView {
     override func mouseDown(theEvent: NSEvent) {
-        // Prevent to pass event to source controller views
     }
 
     override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
         return true
     }
 }
+*/

@@ -26,16 +26,28 @@ class FromViewController: NSViewController {
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "configured" {
             if let segue = segue as? PresentWithAnimatorSegue, animator = segue.animator as? TransitionAnimator {
-                
                 animator.duration = 1
                 animator.transition = [.SlideDown/*, .Crossfade*/]
                 animator.backgroundColor = NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 0.5)
                 animator.keepOriginalSize = true
                 animator.removeFromView = false
+
+            }
+        }
+        else if segue.identifier == "chidwindow" {
+            if let segue = segue as? ChildWindowSegue, animator = segue.animator as? ChildWindowAnimator {
+                animator.windowCustomizer = { window in
+                    window.styleMask = NSBorderlessWindowMask
+                 
+                    if let frame = segue.sourceController.view?.window?.frame {
+                        // Open window near current one
+                        window.setFrameOrigin(NSPoint(x: frame.origin.x + frame.width, y: frame.origin.y))
+                    }
+                }
             }
         }
     }
 
-
 }
 
+ 

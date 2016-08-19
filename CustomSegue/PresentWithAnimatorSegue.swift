@@ -14,9 +14,18 @@ public class PresentWithAnimatorSegue: NSStoryboardSegue {
     
     // An animator used to present the view controller. (by default an TransitionAnimator)
     public var animator: NSViewControllerPresentationAnimator = TransitionAnimator()
+    // Add destination controller as child to source controller
+    public var addAsChild = false
     
     override public func perform() {
-        self.sourceController.presentViewController(self.destinationController as! NSViewController, animator: animator)
+        guard let fromController = self.sourceController as? NSViewController,
+            let toController = self.destinationController as? NSViewController
+            else { return }
+
+        if toController.parentViewController == nil && addAsChild {
+            fromController.addChildViewController(toController)
+        }
+        fromController.presentViewController(toController, animator: animator)
     }
 
 }

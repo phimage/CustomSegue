@@ -36,6 +36,12 @@ public class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator 
     public var keepOriginalSize = false
     // Remove view of fromViewController from view hierarchy. Best use with crossfade effect.
     public var removeFromView = false
+    // Optional origin point for displayed view
+    public var origin: NSPoint? = nil {
+        didSet {
+            assert(keepOriginalSize)
+        }
+    }
     
     private var fromView: NSView? = nil
 
@@ -53,7 +59,11 @@ public class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator 
 
         let originalFrame = viewController.view.frame
         let startFrame = transition.slideStartFrame(fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
-        let destinationFrame = transition.slideStopFrame(fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
+        var destinationFrame = transition.slideStopFrame(fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
+        
+        if let origin = self.origin {
+            destinationFrame.origin = origin
+        }
 
         viewController.view.frame = startFrame
         viewController.view.autoresizingMask = [.ViewWidthSizable, .ViewHeightSizable]
