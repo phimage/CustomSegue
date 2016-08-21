@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import CustomSegue
 
 class DestinationViewController: NSViewController {
 
@@ -16,13 +17,12 @@ class DestinationViewController: NSViewController {
         // Dismiss after defined time interval
         NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(DestinationViewController.dismissController(_:)), userInfo: nil, repeats: false)
     }
-    
-    override var representedObject: AnyObject? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
 
+
+    var segue: ReplaceWindowContentSegue?
+    @IBAction func dismissSegue(sender: AnyObject?) {
+         segue?.unperform()
+    }
 }
 
 // We could prevent to pass event to source controller views by doing nothing here

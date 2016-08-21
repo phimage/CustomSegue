@@ -1,5 +1,5 @@
 //
-//  TransitionFromViewSegue.swift
+//  ReplaceWindowContentSegue.swift
 //  CustomSegue
 /*
  The MIT License (MIT)
@@ -23,32 +23,34 @@
 
 import AppKit
 
-// Segue using parent controller of source and `transitionFromViewController`
-public class TransitionFromViewSegue: NSStoryboardSegue {
+// Replace contentViewController of sourceController parent NSWindow by destinationController
+public class ReplaceWindowContentSegue: NSStoryboardSegue {
     
-    // Animation options for view transitions
-    public var transition: NSViewControllerTransitionOptions =  [.Crossfade, .SlideDown]
-    // Handler for transition completion
-    public var completionHandler: (() -> Void)?
-    // Set wants layer or not for all controller main view
-    public var wantsLayer = true
-    
-    override public func perform() {
+    public var copyFrame = false
+
+    public override func perform() {
         guard let fromController = self.sourceController as? NSViewController,
-            let toController = self.destinationController as? NSViewController
+            let toController = self.destinationController as? NSViewController,
+            let window = fromController.view.window
             else { return }
-
-        if let parentViewController = fromController.parentViewController {
-            parentViewController.addChildViewController(toController)
-
-            if wantsLayer {
-                parentViewController.view.wantsLayer = true
-                fromController.view.wantsLayer = true
-                toController.view.wantsLayer = true
-            }
-
-            parentViewController.transitionFromViewController(fromController, toViewController: toController, options: transition, completionHandler: completionHandler)
+        if copyFrame {
+            toController.view.frame = fromController.view.frame
         }
+        window.contentViewController = toController
     }
-    
+
+    // In prepareForSegue of sourceController, store this segue into destinationController
+    // Then you can call this method to dismiss the destinationController
+    public func unperform() {
+        guard let fromController = self.sourceController as? NSViewController,
+            let toController = self.destinationController as? NSViewController,
+            let window = toController.view.window
+            else { return }
+        
+        if copyFrame {
+            fromController.view.frame = toController.view.frame
+        }
+        window.contentViewController = fromController
+    }
+
 }

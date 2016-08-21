@@ -77,8 +77,36 @@ if let segue = segue as? PresentWithAnimatorSegue {
 }
 ```
 
+## Others segues
+### ReplaceWindowContentSegue
+Replace `contentViewController` of `sourceController` parent `NSWindow` by `destinationController`
+
+:bulb: You can store this segue into `destinationController` and call `unperform` on it to restore `sourceController`
+
+### SplitViewSegue
+Segue that replace the last split view item or add a new one into the `sourceController` parent (`NSSplitViewController`)
+
+Set `replace` to `false` on segue, to add a new split view item.
+
+### DismissSegue
+Segue to dismiss current from controller
+
+Allow to display in storyboard the action as segue instead of simple `IBAction`
+
+### TransitionFromViewSegue
+Segue using parent controller of source and `transitionFromViewController` function
+
+:warning: `parentViewController` must be set and the same for the `sourceController` and `destinationController`
+
+### TablePopoverSegue
+Show `destinationController` in a popover with a position relative to the selected table row
+
+:warning: You must set the `tableView` into segue object (do it in `prepareForSegue`)
+
+:bulb: You can display detail about selected row in a nice way. So in `prepareForSegue` get table view selected row and pass data to `destinationController`
+
 ## Present view controller utility method
-Little utility method added to `NSViewController` using new enum `PresentationMode`
+Little utility method added to `NSViewController` using new enum `PresentationMode`.
 ```swift
 viewController.present(.AsSheet)
 viewController.present(.AsModalWindow)
@@ -87,6 +115,7 @@ viewController.present(.Animator(animator: MyAnimator()))
 viewController.present(.AsPopover(...
 
 ```
+:warning: `parentViewController` must be set
 
 ## Installation
 

@@ -13,6 +13,8 @@
 		C40299F81D44AF23007477E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40299F71D44AF23007477E4 /* Assets.xcassets */; };
 		C40299FB1D44AF23007477E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40299F91D44AF23007477E4 /* Main.storyboard */; };
 		C4029A051D44B45D007477E4 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4029A041D44B45D007477E4 /* DestinationViewController.swift */; };
+		C49FCF841D69871000C2674C /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF831D69871000C2674C /* CustomAnimator.swift */; };
+		C49FCF8A1D6994E900C2674C /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF891D6994E900C2674C /* SplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C40299FA1D44AF23007477E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C40299FC1D44AF23007477E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4029A041D44B45D007477E4 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		C49FCF831D69871000C2674C /* CustomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
+		C49FCF891D6994E900C2674C /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				C40299F31D44AF23007477E4 /* AppDelegate.swift */,
 				C40299F51D44AF23007477E4 /* FromViewController.swift */,
 				C4029A041D44B45D007477E4 /* DestinationViewController.swift */,
+				C49FCF891D6994E900C2674C /* SplitViewController.swift */,
+				C49FCF831D69871000C2674C /* CustomAnimator.swift */,
 				C40299F71D44AF23007477E4 /* Assets.xcassets */,
 				C40299F91D44AF23007477E4 /* Main.storyboard */,
 				C40299FC1D44AF23007477E4 /* Info.plist */,
@@ -209,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49FCF8A1D6994E900C2674C /* SplitViewController.swift in Sources */,
 				C40299F61D44AF23007477E4 /* FromViewController.swift in Sources */,
+				C49FCF841D69871000C2674C /* CustomAnimator.swift in Sources */,
 				C40299F41D44AF23007477E4 /* AppDelegate.swift in Sources */,
 				C4029A051D44B45D007477E4 /* DestinationViewController.swift in Sources */,
 			);

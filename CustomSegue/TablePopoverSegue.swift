@@ -1,5 +1,5 @@
 //
-//  TransitionFromViewSegue.swift
+//  TablePopoverSegue.swift
 //  CustomSegue
 /*
  The MIT License (MIT)
@@ -23,32 +23,28 @@
 
 import AppKit
 
-// Segue using parent controller of source and `transitionFromViewController`
-public class TransitionFromViewSegue: NSStoryboardSegue {
+// show popover near selected table view raw
+public class TablePopoverSegue: NSStoryboardSegue {
     
-    // Animation options for view transitions
-    public var transition: NSViewControllerTransitionOptions =  [.Crossfade, .SlideDown]
-    // Handler for transition completion
-    public var completionHandler: (() -> Void)?
-    // Set wants layer or not for all controller main view
-    public var wantsLayer = true
+    public weak var tableView: NSTableView?
+    public var preferredEdge: NSRectEdge = NSRectEdge.MaxX
+    public var popoverBehavior: NSPopoverBehavior = .Transient
     
-    override public func perform() {
+    public override func perform() {
         guard let fromController = self.sourceController as? NSViewController,
-            let toController = self.destinationController as? NSViewController
+        let toController = self.destinationController as? NSViewController,
+            let tableView = self.tableView
             else { return }
 
-        if let parentViewController = fromController.parentViewController {
-            parentViewController.addChildViewController(toController)
-
-            if wantsLayer {
-                parentViewController.view.wantsLayer = true
-                fromController.view.wantsLayer = true
-                toController.view.wantsLayer = true
+        let selectedColumn = tableView.selectedColumn
+        let selectedRow = tableView.selectedRow
+        var selectedView = tableView as NSView
+        if (selectedRow >= 0) {
+            if let view = tableView.viewAtColumn(selectedColumn, row: selectedRow, makeIfNecessary: false) {
+                selectedView = view
             }
-
-            parentViewController.transitionFromViewController(fromController, toViewController: toController, options: transition, completionHandler: completionHandler)
         }
+        fromController.presentViewController(toController, asPopoverRelativeToRect: selectedView.bounds, ofView: selectedView, preferredEdge: preferredEdge, behavior: popoverBehavior)
     }
     
 }

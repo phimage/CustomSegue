@@ -13,6 +13,10 @@
 		C40994DE1D66D54800DA17AC /* NSViewController+CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */; };
 		C40994E01D66D7A700DA17AC /* TransitionFromViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */; };
 		C40994E21D66DC6B00DA17AC /* ChildWindowSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */; };
+		C49FCF801D69824B00C2674C /* SplitViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF7F1D69824B00C2674C /* SplitViewSegue.swift */; };
+		C49FCF821D69865300C2674C /* ReplaceWindowContentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF811D69865300C2674C /* ReplaceWindowContentSegue.swift */; };
+		C49FCF861D6988BD00C2674C /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF851D6988BD00C2674C /* DismissSegue.swift */; };
+		C49FCF881D698A7A00C2674C /* TablePopoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF871D698A7A00C2674C /* TablePopoverSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+CustomSegue.swift"; sourceTree = "<group>"; };
 		C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionFromViewSegue.swift; sourceTree = "<group>"; };
 		C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildWindowSegue.swift; sourceTree = "<group>"; };
+		C49FCF7F1D69824B00C2674C /* SplitViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewSegue.swift; sourceTree = "<group>"; };
+		C49FCF811D69865300C2674C /* ReplaceWindowContentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceWindowContentSegue.swift; sourceTree = "<group>"; };
+		C49FCF851D6988BD00C2674C /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
+		C49FCF871D698A7A00C2674C /* TablePopoverSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePopoverSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */,
+				C49FCF851D6988BD00C2674C /* DismissSegue.swift */,
 				C40299E31D44AC18007477E4 /* TransitionAnimator.swift */,
 				C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */,
 				C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */,
+				C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */,
+				C49FCF811D69865300C2674C /* ReplaceWindowContentSegue.swift */,
+				C49FCF7F1D69824B00C2674C /* SplitViewSegue.swift */,
+				C49FCF871D698A7A00C2674C /* TablePopoverSegue.swift */,
 				C40299D91D44AC0A007477E4 /* CustomSegue.h */,
 				C40299DB1D44AC0A007477E4 /* Info.plist */,
-				C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */,
 			);
 			path = CustomSegue;
 			sourceTree = "<group>";
@@ -145,11 +157,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49FCF821D69865300C2674C /* ReplaceWindowContentSegue.swift in Sources */,
+				C49FCF881D698A7A00C2674C /* TablePopoverSegue.swift in Sources */,
 				C40994DE1D66D54800DA17AC /* NSViewController+CustomSegue.swift in Sources */,
+				C49FCF861D6988BD00C2674C /* DismissSegue.swift in Sources */,
 				C40299E61D44AC1C007477E4 /* PresentWithAnimatorSegue.swift in Sources */,
 				C40994E21D66DC6B00DA17AC /* ChildWindowSegue.swift in Sources */,
 				C40299E41D44AC18007477E4 /* TransitionAnimator.swift in Sources */,
 				C40994E01D66D7A700DA17AC /* TransitionFromViewSegue.swift in Sources */,
+				C49FCF801D69824B00C2674C /* SplitViewSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +273,7 @@
 				INFOPLIST_FILE = CustomSegue/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.phimage.CustomSegue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -277,6 +294,7 @@
 				INFOPLIST_FILE = CustomSegue/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.phimage.CustomSegue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
