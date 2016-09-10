@@ -24,22 +24,22 @@
 import AppKit
 
 // Segue that replace the last split view item if sourceController is in NSSplitViewController
-public class SplitViewSegue: NSStoryboardSegue {
+open class SplitViewSegue: NSStoryboardSegue {
 
-    public var splitViewType: NSSplitViewItem.InitType = .standard
+    open var splitViewType: NSSplitViewItem.InitType = .standard
     
     // If true replace the source controller or last split view item
     // otherwise just append a new item
-    public var replace = true
+    open var replace = true
 
-    public override func perform() {
+    open override func perform() {
         guard let fromController = self.sourceController as? NSViewController,
             let toController = self.destinationController as? NSViewController
             else { return }
         
-        if let splitViewController = fromController.parentViewController as? NSSplitViewController {
+        if let splitViewController = fromController.parent as? NSSplitViewController {
             if replace {
-                if let splitViewItem = splitViewController.splitViewItemForViewController(fromController) {
+                if let splitViewItem = splitViewController.splitViewItem(for: fromController) {
                     splitViewController.removeSplitViewItem(splitViewItem)
                 } else {
                     splitViewController.removeLastSplitViewItem()
@@ -51,13 +51,13 @@ public class SplitViewSegue: NSStoryboardSegue {
 
     // In prepareForSegue of sourceController, store this segue into destinationController
     // Then you can call this method to dismiss the destinationController
-    public func unperform() {
+    open func unperform() {
         guard let fromController = self.sourceController as? NSViewController,
             let toController = self.destinationController as? NSViewController
             else { return }
         
-        if let splitViewController = toController.parentViewController as? NSSplitViewController {
-            if let splitViewItem = splitViewController.splitViewItemForViewController(toController) {
+        if let splitViewController = toController.parent as? NSSplitViewController {
+            if let splitViewItem = splitViewController.splitViewItem(for: toController) {
                 splitViewController.removeSplitViewItem(splitViewItem)
             } else {
                 splitViewController.removeLastSplitViewItem()
@@ -73,7 +73,7 @@ public class SplitViewSegue: NSStoryboardSegue {
 // MARK: extension
 public extension NSSplitViewController {
     
-    public func addViewController(viewController: NSViewController, type: NSSplitViewItem.InitType = .standard) {
+    public func addViewController(_ viewController: NSViewController, type: NSSplitViewItem.InitType = .standard) {
         self.addSplitViewItem(NSSplitViewItem(viewController: viewController, type: type))
     }
     

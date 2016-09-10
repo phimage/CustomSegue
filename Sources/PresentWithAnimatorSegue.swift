@@ -25,19 +25,19 @@ import AppKit
 
 // A segue with custom animator.
 // You can configure the animator in `prepareForSegue`
-public class PresentWithAnimatorSegue: NSStoryboardSegue {
+open class PresentWithAnimatorSegue: NSStoryboardSegue {
     
     // An animator used to present the view controller. (by default an TransitionAnimator)
-    public var animator: NSViewControllerPresentationAnimator = TransitionAnimator()
+    open var animator: NSViewControllerPresentationAnimator = TransitionAnimator()
     // Add destination controller as child to source controller
-    public var addAsChild = false
+    open var addAsChild = false
     
-    override public func perform() {
+    override open func perform() {
         guard let fromController = self.sourceController as? NSViewController,
             let toController = self.destinationController as? NSViewController
             else { return }
 
-        if toController.parentViewController == nil && addAsChild {
+        if toController.parent == nil && addAsChild {
             fromController.addChildViewController(toController)
         }
         fromController.presentViewController(toController, animator: animator)
@@ -48,51 +48,51 @@ public class PresentWithAnimatorSegue: NSStoryboardSegue {
 // MARK: Utility class with transition type configured
 
 // Slide down segue
-public class SlideDownSegue: PresentWithAnimatorSegue {
+open class SlideDownSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject) {
+    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.SlideDown, .Crossfade]
+        (animator as? TransitionAnimator)?.transition = [.slideDown, .crossfade]
     }
     
 }
 
 // Slide up segue
-public class SlideUpSegue: PresentWithAnimatorSegue {
+open class SlideUpSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject) {
+    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.SlideUp, .Crossfade]
+        (animator as? TransitionAnimator)?.transition = [.slideUp, .crossfade]
     }
     
 }
 
 // Slide left segue
-public class SlideLeftSegue: PresentWithAnimatorSegue {
+open class SlideLeftSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject) {
+    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.SlideLeft, .Crossfade]
+        (animator as? TransitionAnimator)?.transition = [.slideLeft, .crossfade]
     }
     
 }
 
 // Slide right segue
-public class SlideRightSegue: PresentWithAnimatorSegue {
+open class SlideRightSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject) {
+    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.SlideRight, .Crossfade]
+        (animator as? TransitionAnimator)?.transition = [.slideRight, .crossfade]
     }
     
 }
 
 // Crossfade segue
-public class CrossfadeSegue: PresentWithAnimatorSegue {
+open class CrossfadeSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject) {
+    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = .Crossfade
+        (animator as? TransitionAnimator)?.transition = .crossfade
     }
     
 }

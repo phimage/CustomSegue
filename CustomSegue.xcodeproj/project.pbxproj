@@ -8,30 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		C40299DA1D44AC0A007477E4 /* CustomSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = C40299D91D44AC0A007477E4 /* CustomSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C40299E41D44AC18007477E4 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40299E31D44AC18007477E4 /* TransitionAnimator.swift */; };
-		C40299E61D44AC1C007477E4 /* PresentWithAnimatorSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */; };
-		C40994DE1D66D54800DA17AC /* NSViewController+CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */; };
-		C40994E01D66D7A700DA17AC /* TransitionFromViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */; };
-		C40994E21D66DC6B00DA17AC /* ChildWindowSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */; };
-		C49FCF801D69824B00C2674C /* SplitViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF7F1D69824B00C2674C /* SplitViewSegue.swift */; };
-		C49FCF821D69865300C2674C /* ReplaceWindowContentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF811D69865300C2674C /* ReplaceWindowContentSegue.swift */; };
-		C49FCF861D6988BD00C2674C /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF851D6988BD00C2674C /* DismissSegue.swift */; };
-		C49FCF881D698A7A00C2674C /* TablePopoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49FCF871D698A7A00C2674C /* TablePopoverSegue.swift */; };
+		C4BC15B11D84524D00D10F10 /* ChildWindowSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15A81D84524D00D10F10 /* ChildWindowSegue.swift */; };
+		C4BC15B21D84524D00D10F10 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15A91D84524D00D10F10 /* DismissSegue.swift */; };
+		C4BC15B31D84524D00D10F10 /* NSViewController+CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15AA1D84524D00D10F10 /* NSViewController+CustomSegue.swift */; };
+		C4BC15B41D84524D00D10F10 /* PresentWithAnimatorSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15AB1D84524D00D10F10 /* PresentWithAnimatorSegue.swift */; };
+		C4BC15B51D84524D00D10F10 /* ReplaceWindowContentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15AC1D84524D00D10F10 /* ReplaceWindowContentSegue.swift */; };
+		C4BC15B61D84524D00D10F10 /* SplitViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15AD1D84524D00D10F10 /* SplitViewSegue.swift */; };
+		C4BC15B71D84524D00D10F10 /* TablePopoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15AE1D84524D00D10F10 /* TablePopoverSegue.swift */; };
+		C4BC15B81D84524D00D10F10 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15AF1D84524D00D10F10 /* TransitionAnimator.swift */; };
+		C4BC15B91D84524D00D10F10 /* TransitionFromViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC15B01D84524D00D10F10 /* TransitionFromViewSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C40299D61D44AC0A007477E4 /* CustomSegue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomSegue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40299D91D44AC0A007477E4 /* CustomSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
 		C40299DB1D44AC0A007477E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C40299E31D44AC18007477E4 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
-		C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentWithAnimatorSegue.swift; sourceTree = "<group>"; };
-		C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+CustomSegue.swift"; sourceTree = "<group>"; };
-		C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionFromViewSegue.swift; sourceTree = "<group>"; };
-		C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildWindowSegue.swift; sourceTree = "<group>"; };
-		C49FCF7F1D69824B00C2674C /* SplitViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewSegue.swift; sourceTree = "<group>"; };
-		C49FCF811D69865300C2674C /* ReplaceWindowContentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceWindowContentSegue.swift; sourceTree = "<group>"; };
-		C49FCF851D6988BD00C2674C /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
-		C49FCF871D698A7A00C2674C /* TablePopoverSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePopoverSegue.swift; sourceTree = "<group>"; };
+		C4BC15A81D84524D00D10F10 /* ChildWindowSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildWindowSegue.swift; sourceTree = "<group>"; };
+		C4BC15A91D84524D00D10F10 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
+		C4BC15AA1D84524D00D10F10 /* NSViewController+CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+CustomSegue.swift"; sourceTree = "<group>"; };
+		C4BC15AB1D84524D00D10F10 /* PresentWithAnimatorSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentWithAnimatorSegue.swift; sourceTree = "<group>"; };
+		C4BC15AC1D84524D00D10F10 /* ReplaceWindowContentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceWindowContentSegue.swift; sourceTree = "<group>"; };
+		C4BC15AD1D84524D00D10F10 /* SplitViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewSegue.swift; sourceTree = "<group>"; };
+		C4BC15AE1D84524D00D10F10 /* TablePopoverSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePopoverSegue.swift; sourceTree = "<group>"; };
+		C4BC15AF1D84524D00D10F10 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		C4BC15B01D84524D00D10F10 /* TransitionFromViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionFromViewSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +48,7 @@
 		C40299CC1D44AC0A007477E4 = {
 			isa = PBXGroup;
 			children = (
+				C4BC15A71D84524D00D10F10 /* Sources */,
 				C40299D81D44AC0A007477E4 /* CustomSegue */,
 				C40299D71D44AC0A007477E4 /* Products */,
 			);
@@ -64,19 +65,26 @@
 		C40299D81D44AC0A007477E4 /* CustomSegue */ = {
 			isa = PBXGroup;
 			children = (
-				C40299E51D44AC1C007477E4 /* PresentWithAnimatorSegue.swift */,
-				C49FCF851D6988BD00C2674C /* DismissSegue.swift */,
-				C40299E31D44AC18007477E4 /* TransitionAnimator.swift */,
-				C40994DF1D66D7A700DA17AC /* TransitionFromViewSegue.swift */,
-				C40994DD1D66D54800DA17AC /* NSViewController+CustomSegue.swift */,
-				C40994E11D66DC6B00DA17AC /* ChildWindowSegue.swift */,
-				C49FCF811D69865300C2674C /* ReplaceWindowContentSegue.swift */,
-				C49FCF7F1D69824B00C2674C /* SplitViewSegue.swift */,
-				C49FCF871D698A7A00C2674C /* TablePopoverSegue.swift */,
 				C40299D91D44AC0A007477E4 /* CustomSegue.h */,
 				C40299DB1D44AC0A007477E4 /* Info.plist */,
 			);
 			path = CustomSegue;
+			sourceTree = "<group>";
+		};
+		C4BC15A71D84524D00D10F10 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC15A81D84524D00D10F10 /* ChildWindowSegue.swift */,
+				C4BC15A91D84524D00D10F10 /* DismissSegue.swift */,
+				C4BC15AA1D84524D00D10F10 /* NSViewController+CustomSegue.swift */,
+				C4BC15AB1D84524D00D10F10 /* PresentWithAnimatorSegue.swift */,
+				C4BC15AC1D84524D00D10F10 /* ReplaceWindowContentSegue.swift */,
+				C4BC15AD1D84524D00D10F10 /* SplitViewSegue.swift */,
+				C4BC15AE1D84524D00D10F10 /* TablePopoverSegue.swift */,
+				C4BC15AF1D84524D00D10F10 /* TransitionAnimator.swift */,
+				C4BC15B01D84524D00D10F10 /* TransitionFromViewSegue.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,11 +125,12 @@
 		C40299CD1D44AC0A007477E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = phimage;
 				TargetAttributes = {
 					C40299D51D44AC0A007477E4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -157,15 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C49FCF821D69865300C2674C /* ReplaceWindowContentSegue.swift in Sources */,
-				C49FCF881D698A7A00C2674C /* TablePopoverSegue.swift in Sources */,
-				C40994DE1D66D54800DA17AC /* NSViewController+CustomSegue.swift in Sources */,
-				C49FCF861D6988BD00C2674C /* DismissSegue.swift in Sources */,
-				C40299E61D44AC1C007477E4 /* PresentWithAnimatorSegue.swift in Sources */,
-				C40994E21D66DC6B00DA17AC /* ChildWindowSegue.swift in Sources */,
-				C40299E41D44AC18007477E4 /* TransitionAnimator.swift in Sources */,
-				C40994E01D66D7A700DA17AC /* TransitionFromViewSegue.swift in Sources */,
-				C49FCF801D69824B00C2674C /* SplitViewSegue.swift in Sources */,
+				C4BC15B51D84524D00D10F10 /* ReplaceWindowContentSegue.swift in Sources */,
+				C4BC15B31D84524D00D10F10 /* NSViewController+CustomSegue.swift in Sources */,
+				C4BC15B41D84524D00D10F10 /* PresentWithAnimatorSegue.swift in Sources */,
+				C4BC15B21D84524D00D10F10 /* DismissSegue.swift in Sources */,
+				C4BC15B81D84524D00D10F10 /* TransitionAnimator.swift in Sources */,
+				C4BC15B11D84524D00D10F10 /* ChildWindowSegue.swift in Sources */,
+				C4BC15B91D84524D00D10F10 /* TransitionFromViewSegue.swift in Sources */,
+				C4BC15B61D84524D00D10F10 /* SplitViewSegue.swift in Sources */,
+				C4BC15B71D84524D00D10F10 /* TablePopoverSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,8 +195,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -234,8 +245,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -255,6 +268,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -264,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -278,6 +293,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -285,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -298,6 +315,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.phimage.CustomSegue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

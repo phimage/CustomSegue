@@ -1,5 +1,5 @@
 //
-//  DismissSegue.swift
+//  TransitionFromViewSegue.swift
 //  CustomSegue
 /*
  The MIT License (MIT)
@@ -23,18 +23,32 @@
 
 import AppKit
 
-// Segue to dismiss current from controller. Allow to display in storyboard the action instead of simple IBAction
-public class DismissSegue: NSStoryboardSegue {
-
-    public override func perform() {
-        guard let fromController = self.sourceController as? NSViewController
+// Segue using parent controller of source and `transitionFromViewController`
+open class TransitionFromViewSegue: NSStoryboardSegue {
+    
+    // Animation options for view transitions
+    open var transition: NSViewControllerTransitionOptions =  [.crossfade, .slideDown]
+    // Handler for transition completion
+    open var completionHandler: (() -> Void)?
+    // Set wants layer or not for all controller main view
+    open var wantsLayer = true
+    
+    override open func perform() {
+        guard let fromController = self.sourceController as? NSViewController,
+            let toController = self.destinationController as? NSViewController
             else { return }
 
-        if let presentingViewController = fromController.presentingViewController {
-            // assert(self.destinationController as? NSViewController == presentingViewController)
-            presentingViewController.dismissViewController(fromController)
-        } else {
-            fromController.dismissController(nil)
+        if let parentViewController = fromController.parent {
+            parentViewController.addChildViewController(toController)
+
+            if wantsLayer {
+                parentViewController.view.wantsLayer = true
+                fromController.view.wantsLayer = true
+                toController.view.wantsLayer = true
+            }
+
+            parentViewController.transition(from: fromController, to: toController, options: transition, completionHandler: completionHandler)
         }
     }
+    
 }

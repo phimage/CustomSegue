@@ -24,11 +24,11 @@
 import AppKit
 
 // Replace contentViewController of sourceController parent NSWindow by destinationController
-public class ReplaceWindowContentSegue: NSStoryboardSegue {
+open class ReplaceWindowContentSegue: NSStoryboardSegue {
     
-    public var copyFrame = false
+    open var copyFrame = false
 
-    public override func perform() {
+    open override func perform() {
         guard let fromController = self.sourceController as? NSViewController,
             let toController = self.destinationController as? NSViewController,
             let window = fromController.view.window
@@ -41,7 +41,7 @@ public class ReplaceWindowContentSegue: NSStoryboardSegue {
 
     // In prepareForSegue of sourceController, store this segue into destinationController
     // Then you can call this method to dismiss the destinationController
-    public func unperform() {
+    open func unperform() {
         guard let fromController = self.sourceController as? NSViewController,
             let toController = self.destinationController as? NSViewController,
             let window = toController.view.window

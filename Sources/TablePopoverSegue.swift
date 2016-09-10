@@ -24,13 +24,13 @@
 import AppKit
 
 // show popover near selected table view raw
-public class TablePopoverSegue: NSStoryboardSegue {
+open class TablePopoverSegue: NSStoryboardSegue {
     
-    public weak var tableView: NSTableView?
-    public var preferredEdge: NSRectEdge = NSRectEdge.MaxX
-    public var popoverBehavior: NSPopoverBehavior = .Transient
+    open weak var tableView: NSTableView?
+    open var preferredEdge: NSRectEdge = NSRectEdge.maxX
+    open var popoverBehavior: NSPopoverBehavior = .transient
     
-    public override func perform() {
+    open override func perform() {
         guard let fromController = self.sourceController as? NSViewController,
         let toController = self.destinationController as? NSViewController,
             let tableView = self.tableView
@@ -40,11 +40,11 @@ public class TablePopoverSegue: NSStoryboardSegue {
         let selectedRow = tableView.selectedRow
         var selectedView = tableView as NSView
         if (selectedRow >= 0) {
-            if let view = tableView.viewAtColumn(selectedColumn, row: selectedRow, makeIfNecessary: false) {
+            if let view = tableView.view(atColumn: selectedColumn, row: selectedRow, makeIfNecessary: false) {
                 selectedView = view
             }
         }
-        fromController.presentViewController(toController, asPopoverRelativeToRect: selectedView.bounds, ofView: selectedView, preferredEdge: preferredEdge, behavior: popoverBehavior)
+        fromController.presentViewController(toController, asPopoverRelativeTo: selectedView.bounds, of: selectedView, preferredEdge: preferredEdge, behavior: popoverBehavior)
     }
     
 }

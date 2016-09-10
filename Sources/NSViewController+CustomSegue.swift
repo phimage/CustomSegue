@@ -27,31 +27,31 @@ public extension NSViewController {
 
     // How to present this view controller
     public enum PresentationMode {
-        case AsModalWindow
-        case AsSheet
-        case AsPopover(relativeToRect: NSRect, ofView : NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
-        case TransitionFrom(fromViewController: NSViewController, options: NSViewControllerTransitionOptions)
-        case Animator(animator: NSViewControllerPresentationAnimator)
-        case Segue(segueIdentifier: String)
+        case asModalWindow
+        case asSheet
+        case asPopover(relativeToRect: NSRect, ofView : NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
+        case transitionFrom(fromViewController: NSViewController, options: NSViewControllerTransitionOptions)
+        case animator(animator: NSViewControllerPresentationAnimator)
+        case segue(segueIdentifier: String)
     }
 
     // Present this view controller using parent controller.
-    public func present(mode: PresentationMode) {
-        assert(self.parentViewController != nil)
-        if let p = self.parentViewController {
+    public func present(_ mode: PresentationMode) {
+        assert(self.parent != nil)
+        if let p = self.parent {
             switch mode {
-            case .AsSheet:
+            case .asSheet:
                 p.presentViewControllerAsSheet(self)
-            case .AsModalWindow:
+            case .asModalWindow:
                 p.presentViewControllerAsModalWindow(self)
-            case .AsPopover(let positioningRect, let positioningView, let preferredEdge, let behavior):
-                p.presentViewController(self, asPopoverRelativeToRect: positioningRect, ofView : positioningView, preferredEdge: preferredEdge, behavior: behavior)
-            case .TransitionFrom(let fromViewController, let options):
-                p.transitionFromViewController(fromViewController, toViewController: self, options: options, completionHandler: nil)
-            case .Animator(let animator):
+            case .asPopover(let positioningRect, let positioningView, let preferredEdge, let behavior):
+                p.presentViewController(self, asPopoverRelativeTo: positioningRect, of : positioningView, preferredEdge: preferredEdge, behavior: behavior)
+            case .transitionFrom(let fromViewController, let options):
+                p.transition(from: fromViewController, to: self, options: options, completionHandler: nil)
+            case .animator(let animator):
                 p.presentViewController(self, animator: animator)
-            case .Segue(let segueIdentifier):
-                p.performSegueWithIdentifier(segueIdentifier, sender: self)
+            case .segue(let segueIdentifier):
+                p.performSegue(withIdentifier: segueIdentifier, sender: self)
             }
         }
     }
