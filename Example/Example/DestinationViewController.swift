@@ -15,12 +15,12 @@ class DestinationViewController: NSViewController {
         super.viewDidLoad()
 
         // Dismiss after defined time interval
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(DestinationViewController.dismissController(_:)), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DestinationViewController.dismiss(_:)), userInfo: nil, repeats: false)
     }
 
 
     var segue: ReplaceWindowContentSegue?
-    @IBAction func dismissSegue(sender: AnyObject?) {
+    @IBAction func dismissSegue(_ sender: AnyObject?) {
          segue?.unperform()
     }
 }

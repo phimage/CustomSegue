@@ -9,13 +9,22 @@
 import Cocoa
 import CustomSegue
 
+extension NSStoryboardSegue {
+    var source: NSViewController? {
+        return self.sourceController as? NSViewController
+    }
+    var destination: NSViewController? {
+        return self.destinationController as? NSViewController
+    }
+}
+
 class FromViewController: NSViewController {
 
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "configured" {
-            if let segue = segue as? PresentWithAnimatorSegue, animator = segue.animator as? TransitionAnimator {
+            if let segue = segue as? PresentWithAnimatorSegue, let animator = segue.animator as? TransitionAnimator {
                 animator.duration = 1
-                animator.transition = [.SlideDown/*, .Crossfade*/]
+                animator.transition = [.slideDown/*, .crossfade*/]
                 animator.backgroundColor = NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 0.5)
                 animator.keepOriginalSize = true
                 animator.removeFromView = false
@@ -23,11 +32,11 @@ class FromViewController: NSViewController {
             }
         }
         else if segue.identifier == "chidwindow" {
-            if let segue = segue as? ChildWindowSegue, animator = segue.animator as? ChildWindowAnimator {
+            if let segue = segue as? ChildWindowSegue, let animator = segue.animator as? ChildWindowAnimator {
                 animator.windowCustomizer = { window in
                     window.styleMask = NSBorderlessWindowMask
                  
-                    if let frame = segue.sourceController.view?.window?.frame {
+                    if let frame = segue.source?.view.window?.frame {
                         // Open window near current one
                         let origin = NSPoint(x: frame.origin.x + frame.width, y: frame.origin.y)
                         window.setFrameOrigin(origin)
@@ -36,10 +45,10 @@ class FromViewController: NSViewController {
             }
         }
         else if segue.identifier == "splitview" {
-            if let segue = segue as? ChildWindowSegue, animator = segue.animator as? ChildWindowAnimator {
+            if let segue = segue as? ChildWindowSegue, let animator = segue.animator as? ChildWindowAnimator {
                 animator.windowCustomizer = { window in
                     
-                    if let frame = segue.sourceController.view?.window?.frame {
+                    if let frame = segue.source?.view.window?.frame {
                         
                         var newFrame = NSRect()
                         newFrame.origin =  NSPoint(x: frame.origin.x + frame.width, y: frame.origin.y)
@@ -47,7 +56,7 @@ class FromViewController: NSViewController {
                         window.setFrame(newFrame, display: false)
                         
                         if let splitC = segue.destinationController as? NSSplitViewController {
-                            splitC.splitView.setPosition(frame.width / 2, ofDividerAtIndex: 0)
+                            splitC.splitView.setPosition(frame.width / 2, ofDividerAt: 0)
                         }
                     }
                 }
@@ -57,13 +66,13 @@ class FromViewController: NSViewController {
         }
         else if segue.identifier == "customanimator" {
             if let segue = segue as? PresentWithAnimatorSegue {
-                if let frame = segue.sourceController.view?.window?.frame {
+                if let frame = segue.source?.view.window?.frame {
                     segue.animator = CustomAnimator(duration: 1.0, rect: frame)
                 }
                 
             }
         } else if segue.identifier == "replace" {
-            if let segue = segue as? ReplaceWindowContentSegue, destinationController = segue.destinationController as? DestinationViewController {
+            if let segue = segue as? ReplaceWindowContentSegue, let destinationController = segue.destinationController as? DestinationViewController {
                 destinationController.segue = segue
             }
         }
