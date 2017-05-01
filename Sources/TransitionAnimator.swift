@@ -49,8 +49,6 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
     // If true, when sliding the destination controller keep one of its size element.(ex: for slide down and up, the height is kept)
     // (default: false)
     open var keepOriginalSize = false
-    // Remove view of fromViewController from view hierarchy. Best use with crossfade effect.
-    open var removeFromView = false
     // Optional origin point for displayed view
     open var origin: NSPoint? = nil {
         didSet {
@@ -93,13 +91,10 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
             viewController.view.layer?.isOpaque = true
         }
         // maybe create an intermediate container view to remove from controller view from hierarchy
-        if removeFromView {
-            fromView = fromViewController.view
-            fromViewController.view = NSView(frame: fromViewController.view.frame)
-            fromViewController.view.addSubview(fromView!)
-        }
-        fromViewController.view.addSubview(viewController.view)
-
+        fromView = fromViewController.view
+        fromViewController.view.superview?.addSubview(viewController.view)
+        
+        
         NSAnimationContext.runAnimationGroup(
             { [unowned self] context in
                 context.duration = self.duration
@@ -112,9 +107,7 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
                 }
                 
             }, completionHandler: { [unowned self] in
-                if self.removeFromView {
-                    self.fromView?.removeFromSuperview()
-                }
+                self.fromView?.removeFromSuperview()
                 if let src = viewController as? TransitionAnimatorNotifiable {
                     src.notifyTransitionCompletion(.present)
                 }
@@ -129,9 +122,7 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
         let originalFrame = viewController.view.frame
         let destinationFrame = transition.slideStartFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
         
-        if self.removeFromView {
-            fromViewController.view.addSubview(self.fromView!)
-        }
+        viewController.view.superview?.addSubview(fromViewController.view, positioned: .below, relativeTo: viewController.view)
         
         NSAnimationContext.runAnimationGroup(
             { [unowned self] context in
@@ -146,11 +137,6 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
 
             }, completionHandler: {
                 viewController.view.removeFromSuperview()
-                if self.removeFromView {
-                    if let view = self.fromView {
-                        fromViewController.view = view
-                    }
-                }
                 
                 if let src = viewController as? TransitionAnimatorNotifiable {
                     src.notifyTransitionCompletion(.dismiss)
