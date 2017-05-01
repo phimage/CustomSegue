@@ -52,7 +52,7 @@ open class SlideDownSegue: PresentWithAnimatorSegue {
     
     override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideDown, .crossfade]
+        (animator as? TransitionAnimator)?.transition = .slideDown
     }
     
 }
@@ -62,7 +62,7 @@ open class SlideUpSegue: PresentWithAnimatorSegue {
     
     override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideUp, .crossfade]
+        (animator as? TransitionAnimator)?.transition = .slideUp
     }
     
 }
@@ -72,7 +72,7 @@ open class SlideLeftSegue: PresentWithAnimatorSegue {
     
     override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideLeft, .crossfade]
+        (animator as? TransitionAnimator)?.transition = .slideLeft
     }
     
 }
@@ -82,7 +82,7 @@ open class SlideRightSegue: PresentWithAnimatorSegue {
     
     override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideRight, .crossfade]
+        (animator as? TransitionAnimator)?.transition = .slideRight
     }
     
 }
