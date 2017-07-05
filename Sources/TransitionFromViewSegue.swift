@@ -27,7 +27,7 @@ import AppKit
 open class TransitionFromViewSegue: NSStoryboardSegue {
     
     // Animation options for view transitions
-    open var transition: NSViewControllerTransitionOptions =  [.crossfade, .slideDown]
+    open var transition: NSViewController.TransitionOptions =  [.crossfade, .slideDown]
     // Handler for transition completion
     open var completionHandler: (() -> Void)?
     // Set wants layer or not for all controller main view

@@ -29,8 +29,8 @@ public extension NSViewController {
     public enum PresentationMode {
         case asModalWindow
         case asSheet
-        case asPopover(relativeToRect: NSRect, ofView : NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
-        case transitionFrom(fromViewController: NSViewController, options: NSViewControllerTransitionOptions)
+        case asPopover(relativeToRect: NSRect, ofView : NSView, preferredEdge: NSRectEdge, behavior: NSPopover.Behavior)
+        case transitionFrom(fromViewController: NSViewController, options: NSViewController.TransitionOptions)
         case animator(animator: NSViewControllerPresentationAnimator)
         case segue(segueIdentifier: String)
     }
@@ -51,7 +51,7 @@ public extension NSViewController {
             case .animator(let animator):
                 p.presentViewController(self, animator: animator)
             case .segue(let segueIdentifier):
-                p.performSegue(withIdentifier: segueIdentifier, sender: self)
+                p.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: segueIdentifier), sender: self)
             }
         }
     }
