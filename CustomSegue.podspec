@@ -2,21 +2,21 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "CustomSegue"
-  s.version      = "2.0.0"
+  s.version      = “3.0.0”
   s.summary      = "Custom segue for OSX Storyboards with slide and cross fade effects"
-  s.homepage     = "https://github.com/phimage/CustomSegue"
+  s.homepage     = "https://github.com/AudioW/CustomSegue"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.license      = "MIT"
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.author             = { "phimage" => "eric.marchand.n7@gmail.com" }
+  s.author             = { “AudioW” => “wouter@wjaudio.nl” }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.osx.deployment_target = '10.10'
+  s.osx.deployment_target = '10.13’
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source       = { :git => "https://github.com/phimage/CustomSegue.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/AudioW/CustomSegue.git", :tag => s.version }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
