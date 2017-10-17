@@ -50,9 +50,9 @@ open class PresentWithAnimatorSegue: NSStoryboardSegue {
 // Slide down segue
 open class SlideDownSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
+    override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideDown, .crossfade]
+        (animator as? TransitionAnimator)?.transition = NSViewController.TransitionOptions.slideDown
     }
     
 }
@@ -60,9 +60,9 @@ open class SlideDownSegue: PresentWithAnimatorSegue {
 // Slide up segue
 open class SlideUpSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
+    override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideUp, .crossfade]
+        (animator as? TransitionAnimator)?.transition = NSViewController.TransitionOptions.slideUp
     }
     
 }
@@ -70,9 +70,9 @@ open class SlideUpSegue: PresentWithAnimatorSegue {
 // Slide left segue
 open class SlideLeftSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
+    override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideLeft, .crossfade]
+        (animator as? TransitionAnimator)?.transition = NSViewController.TransitionOptions.slideLeft
     }
     
 }
@@ -80,9 +80,9 @@ open class SlideLeftSegue: PresentWithAnimatorSegue {
 // Slide right segue
 open class SlideRightSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
+    override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = [.slideRight, .crossfade]
+        (animator as? TransitionAnimator)?.transition = NSViewController.TransitionOptions.slideRight
     }
     
 }
@@ -90,9 +90,9 @@ open class SlideRightSegue: PresentWithAnimatorSegue {
 // Crossfade segue
 open class CrossfadeSegue: PresentWithAnimatorSegue {
     
-    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
+    override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
-        (animator as? TransitionAnimator)?.transition = .crossfade
+        (animator as? TransitionAnimator)?.transition = NSViewController.TransitionOptions.crossfade
     }
     
 }

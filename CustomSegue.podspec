@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "CustomSegue"
-  s.version      = "2.0.0"
+  s.version      = "3.0.0"
   s.summary      = "Custom segue for OSX Storyboards with slide and cross fade effects"
-  s.homepage     = "https://github.com/phimage/CustomSegue"
+  s.homepage     = "https://github.com/DimaRU/CustomSegue"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.license      = "MIT"
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source       = { :git => "https://github.com/phimage/CustomSegue.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/DimaRU/CustomSegue.git", :tag => s.version }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 

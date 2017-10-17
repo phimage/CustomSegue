@@ -25,7 +25,7 @@ import AppKit
 
 // Segue to present controller in a new NSWindow
 public final class ChildWindowSegue: PresentWithAnimatorSegue {
-    override init(identifier: String, source sourceController: Any, destination destinationController: Any) {
+    override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any) {
         super.init(identifier: identifier, source: sourceController, destination: destinationController)
         animator = ChildWindowAnimator()
     }
@@ -37,7 +37,7 @@ open class ChildWindowAnimator: NSObject, NSViewControllerPresentationAnimator {
     // Customize created NSWindow
     open var windowCustomizer: ((NSWindow) -> Void)? = nil
     // Place when adding child window
-    open var place: NSWindowOrderingMode = .above
+    open var place: NSWindow.OrderingMode = .above
     
     // Create the NSWindow
     open var windowFactory: ((_ contentViewController: NSViewController) -> NSWindow) = { contentViewController in
