@@ -28,7 +28,7 @@ open class TablePopoverSegue: NSStoryboardSegue {
     
     open weak var tableView: NSTableView?
     open var preferredEdge: NSRectEdge = NSRectEdge.maxX
-    open var popoverBehavior: NSPopoverBehavior = .transient
+    open var popoverBehavior: NSPopover.Behavior = .transient
     
     open override func perform() {
         guard let fromController = self.sourceController as? NSViewController,
