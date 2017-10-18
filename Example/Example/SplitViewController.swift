@@ -20,7 +20,7 @@ class SplitViewController: NSViewController {
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let segue = segue as? SplitViewSegue {
-            segue.replace = checkbox.state == NSOnState
+            segue.replace = checkbox.state == .on
             if let d = segue.destinationController as? DestinationSplitViewController {
                 d.segue = segue
             }

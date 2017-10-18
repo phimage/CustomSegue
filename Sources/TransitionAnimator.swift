@@ -61,7 +61,7 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
     fileprivate var fromView: NSView? = nil
 
     // Init
-    public init(duration: TimeInterval =  0.3, transition: NSViewController.TransitionOptions = [.crossfade, .slideDown]) {
+    public init(duration: TimeInterval =  0.3, transition: NSViewController.TransitionOptions = [NSViewController.TransitionOptions.crossfade, NSViewController.TransitionOptions.slideDown]) {
         self.duration = duration
         self.transition = transition
     }
@@ -81,9 +81,9 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
         }
 
         viewController.view.frame = startFrame
-        viewController.view.autoresizingMask = [.width, .height]
+        viewController.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
 
-        if transition.contains(.crossfade) {
+        if transition.contains(NSViewController.TransitionOptions.crossfade) {
             viewController.view.alphaValue = 0
         }
 
@@ -106,7 +106,7 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
                 context.timingFunction =  CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
                 
                 viewController.view.animator().frame = destinationFrame
-                if self.transition.contains(.crossfade) {
+                if self.transition.contains(NSViewController.TransitionOptions.crossfade) {
                     viewController.view.animator().alphaValue = 1
                     self.fromView?.animator().alphaValue = 0
                 }
@@ -139,7 +139,7 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
                 context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
                 
                 viewController.view.animator().frame = destinationFrame
-                if self.transition.contains(.crossfade) {
+                if self.transition.contains(NSViewController.TransitionOptions.crossfade) {
                     viewController.view.animator().alphaValue = 0
                     self.fromView?.animator().alphaValue = 1
                 }
@@ -168,23 +168,23 @@ open class TransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
 extension NSViewController.TransitionOptions {
     
     func slideStartFrame(fromFrame: NSRect, keepOriginalSize: Bool, originalFrame: NSRect) -> NSRect {
-        if self.contains(.slideLeft) {
+        if self.contains(NSViewController.TransitionOptions.slideLeft) {
             let width = keepOriginalSize ? originalFrame.width : fromFrame.width
             return NSRect(x: fromFrame.width, y: 0, width: width, height: fromFrame.height)
         }
-        if self.contains(.slideRight) {
+        if self.contains(NSViewController.TransitionOptions.slideRight) {
             let width = keepOriginalSize ? originalFrame.width : fromFrame.width
             return NSRect(x: -width, y: 0, width: width, height: fromFrame.height)
         }
-        if self.contains(.slideDown) {
+        if self.contains(NSViewController.TransitionOptions.slideDown) {
             let height = keepOriginalSize ? originalFrame.height : fromFrame.height
             return NSRect(x: 0, y: fromFrame.height, width: fromFrame.width, height: height)
         }
-        if self.contains(.slideUp) {
+        if self.contains(NSViewController.TransitionOptions.slideUp) {
             let height = keepOriginalSize ? originalFrame.height : fromFrame.height
             return NSRect(x: 0, y: -height, width: fromFrame.width, height: height)
         }
-        if self.contains(.slideForward) {
+        if self.contains(NSViewController.TransitionOptions.slideForward) {
             switch NSApp.userInterfaceLayoutDirection {
             case .leftToRight:
                 return NSViewController.TransitionOptions.slideLeft.slideStartFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
@@ -192,7 +192,7 @@ extension NSViewController.TransitionOptions {
                 return NSViewController.TransitionOptions.slideRight.slideStartFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
             }
         }
-        if self.contains(.slideBackward) {
+        if self.contains(NSViewController.TransitionOptions.slideBackward) {
             switch NSApp.userInterfaceLayoutDirection {
             case .leftToRight:
                 return NSViewController.TransitionOptions.slideRight.slideStartFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
@@ -207,19 +207,19 @@ extension NSViewController.TransitionOptions {
         if !keepOriginalSize {
             return fromFrame
         }
-        if self.contains(.slideLeft) {
+        if self.contains(NSViewController.TransitionOptions.slideLeft) {
             return NSRect(x: fromFrame.width - originalFrame.width , y: 0, width: originalFrame.width , height: fromFrame.height)
         }
-        if self.contains(.slideRight) {
+        if self.contains(NSViewController.TransitionOptions.slideRight) {
             return NSRect(x: 0, y: 0, width: originalFrame.width , height: fromFrame.height)
         }
-        if self.contains(.slideUp) {
+        if self.contains(NSViewController.TransitionOptions.slideUp) {
             return NSRect(x: 0, y: 0, width: fromFrame.width, height: originalFrame.height )
         }
-        if self.contains(.slideDown) {
+        if self.contains(NSViewController.TransitionOptions.slideDown) {
             return NSRect(x: 0, y: fromFrame.height - originalFrame.height , width: fromFrame.width, height: originalFrame.height)
         }
-        if self.contains(.slideForward) {
+        if self.contains(NSViewController.TransitionOptions.slideForward) {
             switch NSApp.userInterfaceLayoutDirection {
             case .leftToRight:
                 return NSViewController.TransitionOptions.slideLeft.slideStopFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
@@ -227,7 +227,7 @@ extension NSViewController.TransitionOptions {
                 return NSViewController.TransitionOptions.slideRight.slideStopFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)
             }
         }
-        if self.contains(.slideBackward) {
+        if self.contains(NSViewController.TransitionOptions.slideBackward) {
             switch NSApp.userInterfaceLayoutDirection {
             case .leftToRight:
                 return NSViewController.TransitionOptions.slideRight.slideStopFrame(fromFrame: fromFrame, keepOriginalSize: keepOriginalSize, originalFrame: originalFrame)

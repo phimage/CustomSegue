@@ -42,13 +42,22 @@ In your storyboard add an storyboard identifier to the segue.
 
 <img src="https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/Art/SB_H_set_segue_identifier_2x.png" width="301" height="229">
 
-Then in your source view controller, you can configure the segue in `prepareForSegue` function.
+Then in your source view controller, you can configure the segue in `prepare(for segue` function.
 
 ```swift
 class MyViewController: NSViewController {
-  override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "PetDetail" {
+  override func prepare(for segue: NSStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier?.rawValue == "PetDetail" {
     ...
+```
+
+You can use [Natalie](https://github.com/krzyzanowskim/Natalie) to generate code about segue for your controller.
+With this generate code you can do
+```swift
+  override func prepare(for segue: NSStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "PetDetail" {
+    // or better the constant generated
+    if segue == MyViewController.Segue.petDetail {
 ```
 
 You can change the duration, the transition type, ... on `animator` object of type `TransitionAnimator`
@@ -67,7 +76,7 @@ if let segue = segue as? ChildWindowSegue, animator = segue.animator as? ChildWi
       window.setFrameOrigin(NSPoint(...))
     }
 }
-```              
+```
 
 
 :bulb: You can also put your own custom animator.
@@ -108,11 +117,11 @@ Show `destinationController` in a popover with a position relative to the select
 ## Present view controller utility method
 Little utility method added to `NSViewController` using new enum `PresentationMode`.
 ```swift
-viewController.present(.AsSheet)
-viewController.present(.AsModalWindow)
-viewController.present(.Segue(segueIdentifier: "id"))
-viewController.present(.Animator(animator: MyAnimator()))
-viewController.present(.AsPopover(...
+viewController.present(.asSheet)
+viewController.present(.asModalWindow)
+viewController.present(.segue(segueIdentifier: "id"))
+viewController.present(.animator(animator: MyAnimator()))
+viewController.present(.asPopover(...
 
 ```
 :warning: `parentViewController` must be set

@@ -21,7 +21,7 @@ extension NSStoryboardSegue {
 class FromViewController: NSViewController {
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "configured" {
+        if segue == FromViewController.Segue.configured {
             if let segue = segue as? PresentWithAnimatorSegue, let animator = segue.animator as? TransitionAnimator {
                 animator.duration = 1
                 animator.transition = [.slideDown/*, .crossfade*/]
@@ -34,7 +34,7 @@ class FromViewController: NSViewController {
         else if segue.identifier == "chidwindow" {
             if let segue = segue as? ChildWindowSegue, let animator = segue.animator as? ChildWindowAnimator {
                 animator.windowCustomizer = { window in
-                    window.styleMask = NSBorderlessWindowMask
+                    window.styleMask = .borderless
                  
                     if let frame = segue.source?.view.window?.frame {
                         // Open window near current one
