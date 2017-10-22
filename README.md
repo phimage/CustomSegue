@@ -40,7 +40,7 @@ Use `PresentWithAnimatorSegue` in your storyboard or use one of already configur
 ### Configure segue
 In your storyboard add an storyboard identifier to the segue.
 
-<img src="https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/Art/SB_H_set_segue_identifier_2x.png" width="301" height="229">
+<img src="SB_H_set_segue_identifier_2x.png" width="301" height="229">
 
 Then in your source view controller, you can configure the segue in `prepare(for segue` function.
 
