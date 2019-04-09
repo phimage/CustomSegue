@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.source_files = "Sources/*.swift"
-  s.swift_version = '5.0'
+  # s.swift_version = '5.0'
 
 end
