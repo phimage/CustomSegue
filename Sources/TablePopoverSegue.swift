@@ -44,7 +44,7 @@ open class TablePopoverSegue: NSStoryboardSegue {
                 selectedView = view
             }
         }
-        fromController.presentViewController(toController, asPopoverRelativeTo: selectedView.bounds, of: selectedView, preferredEdge: preferredEdge, behavior: popoverBehavior)
+        fromController.present(toController, asPopoverRelativeTo: selectedView.bounds, of: selectedView, preferredEdge: preferredEdge, behavior: popoverBehavior)
     }
     
 }

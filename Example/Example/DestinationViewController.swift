@@ -15,7 +15,12 @@ class DestinationViewController: NSViewController {
         super.viewDidLoad()
 
         // Dismiss after defined time interval
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DestinationViewController.dismiss(_:)), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(DestinationViewController.dismissNotAmbigous(_:)), userInfo: nil, repeats: false)
+    }
+
+
+    @objc func dismissNotAmbigous(_ sender: AnyObject?) {
+        self.dismiss(sender)
     }
 
 

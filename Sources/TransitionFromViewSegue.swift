@@ -39,7 +39,7 @@ open class TransitionFromViewSegue: NSStoryboardSegue {
             else { return }
 
         if let parentViewController = fromController.parent {
-            parentViewController.addChildViewController(toController)
+            parentViewController.addChild(toController)
 
             if wantsLayer {
                 parentViewController.view.wantsLayer = true

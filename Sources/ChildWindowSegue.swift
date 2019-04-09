@@ -55,7 +55,10 @@ open class ChildWindowAnimator: NSObject, NSViewControllerPresentationAnimator {
 
     open func animateDismissal(of viewController: NSViewController, from fromViewController: NSViewController) {
         if let window = viewController.view.window {
-            fromViewController.view.window?.removeChildWindow(window)
+            DispatchQueue.main.async {
+                fromViewController.view.window?.removeChildWindow(window)
+                window.orderOut(self)
+            }
         }
     }
 

@@ -1,0 +1,16 @@
+PODS:
+  - CustomSegue (4.0.0)
+
+DEPENDENCIES:
+  - CustomSegue (from `../CustomSegue.podspec`)
+
+EXTERNAL SOURCES:
+  CustomSegue:
+    :path: "../CustomSegue.podspec"
+
+SPEC CHECKSUMS:
+  CustomSegue: debd954fd08cc7e101a1d8df330c22ded6a412ec
+
+PODFILE CHECKSUM: de97afe579430568ffbb32e1dcc73e6eb62f35aa
+
+COCOAPODS: 1.6.0

@@ -34,7 +34,7 @@ struct Storyboards {
 
     struct Main: Storyboard {
 
-        static let identifier = NSStoryboard.Name("Main")
+        static let identifier = "Main"
 
         static var storyboard: NSStoryboard {
             return NSStoryboard(name: self.identifier, bundle: nil)
@@ -122,7 +122,7 @@ public func ~=<T: SegueProtocol>(lhs: NSStoryboardSegue.Identifier, rhs: T) -> B
     return lhs == rhs.identifier
 }
 
-extension NSStoryboardSegue.Identifier: ExpressibleByStringLiteral {
+/*extension NSStoryboardSegue.Identifier: ExpressibleByStringLiteral {
     public typealias StringLiteralType = String
     public init(stringLiteral value: StringLiteralType) {
         self.init(rawValue: value)
@@ -130,20 +130,20 @@ extension NSStoryboardSegue.Identifier: ExpressibleByStringLiteral {
 }
 
 public func ==<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
-    return lhs.identifier?.rawValue == rhs
+    return lhs.identifier? == rhs
 }
 
 public func ~=<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
-    return lhs.identifier?.rawValue == rhs
+    return lhs.identifier? == rhs
 }
 
 public func ==<T: SegueProtocol>(lhs: String, rhs: T) -> Bool {
-    return lhs == rhs.identifier?.rawValue
+    return lhs == rhs.identifier?
 }
 
 public func ~=<T: SegueProtocol>(lhs: String, rhs: T) -> Bool {
-    return lhs == rhs.identifier?.rawValue
-}
+    return lhs == rhs.identifier?
+}*/
 
 // MARK: - ReusableViewProtocol
 public protocol ReusableViewProtocol: IdentifiableProtocol {

@@ -30,9 +30,9 @@ open class DismissSegue: NSStoryboardSegue {
         guard let fromController = self.sourceController as? NSViewController
             else { return }
 
-        if let presentingViewController = fromController.presenting {
+        if let presentingViewController = fromController.presentingViewController {
             // assert(self.destinationController as? NSViewController == presentingViewController)
-            presentingViewController.dismissViewController(fromController)
+            presentingViewController.dismiss(fromController)
         } else {
             fromController.dismiss(nil)
         }

@@ -73,11 +73,11 @@ open class SplitViewSegue: NSStoryboardSegue {
 // MARK: extension
 public extension NSSplitViewController {
     
-    public func addViewController(_ viewController: NSViewController, type: NSSplitViewItem.InitType = .standard) {
+    func addViewController(_ viewController: NSViewController, type: NSSplitViewItem.InitType = .standard) {
         self.addSplitViewItem(NSSplitViewItem(viewController: viewController, type: type))
     }
     
-    public func removeLastSplitViewItem() {
+    func removeLastSplitViewItem() {
         if let last = self.splitViewItems.last {
             self.removeSplitViewItem(last)
         }
@@ -87,7 +87,7 @@ public extension NSSplitViewController {
 
 public extension NSSplitViewItem {
     
-    public convenience init(viewController: NSViewController, type: NSSplitViewItem.InitType) {
+    convenience init(viewController: NSViewController, type: NSSplitViewItem.InitType) {
         switch type {
         case .standard:
             self.init(viewController: viewController)
@@ -106,7 +106,7 @@ public extension NSSplitViewItem {
         }
     }
     
-    public enum InitType {
+    enum InitType {
         case standard
         @available(OSX 10.11, *)
         case sidebar

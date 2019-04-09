@@ -38,9 +38,9 @@ open class PresentWithAnimatorSegue: NSStoryboardSegue {
             else { return }
 
         if toController.parent == nil && addAsChild {
-            fromController.addChildViewController(toController)
+            fromController.addChild(toController)
         }
-        fromController.presentViewController(toController, animator: animator)
+        fromController.present(toController, animator: animator)
     }
 
 }

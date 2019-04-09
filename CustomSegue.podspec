@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "CustomSegue"
-  s.version      = "3.0.0"
+  s.version      = "4.0.0"
   s.summary      = "Custom segue for OSX Storyboards with slide and cross fade effects"
   s.homepage     = "https://github.com/phimage/CustomSegue"
 
@@ -21,5 +21,6 @@ Pod::Spec.new do |s|
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.source_files = "Sources/*.swift"
+  s.swift_version = '5.0'
 
 end
